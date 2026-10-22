@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e9535b">
+  <meta name="description" content="Explore Pokémon battle statistics, type distributions and machine-learning classification with interactive visualizations.">
+  <title>Pokémon Atlas | Data Science Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="Pokémon Atlas home">
+        <span class="mini-ball" aria-hidden="true"></span>
+        <span><strong>POKÉMON ATLAS</strong><small>DATA SCIENCE LAB</small></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#overview">Overview</a>
+        <a href="#explore">Explore</a>
+        <a href="#insights">Insights</a>
+        <a href="#models">ML Lab</a>
+      </nav>
+      <span class="nav-indicator"><span class="status-dot"></span> CSV-POWERED</span>
+    </div>
+  </header>
+
+  <main id="top" class="page-shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> INTERACTIVE DATA PROJECT <span class="eyebrow-index">/ 001</span></span>
+        <h1 id="hero-title">Discover the data<br><em>behind every type.</em></h1>
+        <p class="hero-text">An exploratory journey through Pokémon battle statistics, type profiles and machine learning. Built with R, JavaScript and real data.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#explore">Explore Pokémon <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-secondary" href="#models">View ML results <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="type-showcase" aria-label="Pokémon's 18 primary type icons">
+          <div class="type-showcase-heading">18 POKÉMON TYPES <span aria-hidden="true">/ CLICK TO EXPLORE</span></div>
+          <div class="type-icon-grid">
+            <button type="button" class="type-icon-btn" data-type="normal" data-name="Normal" aria-label="Explore Normal type" title="Normal"><img src="assets/type-icons/normal.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="fighting" data-name="Fighting" aria-label="Explore Fighting type" title="Fighting"><img src="assets/type-icons/fighting.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="flying" data-name="Flying" aria-label="Explore Flying type" title="Flying"><img src="assets/type-icons/flying.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="poison" data-name="Poison" aria-label="Explore Poison type" title="Poison"><img src="assets/type-icons/poison.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="ground" data-name="Ground" aria-label="Explore Ground type" title="Ground"><img src="assets/type-icons/ground.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="rock" data-name="Rock" aria-label="Explore Rock type" title="Rock"><img src="assets/type-icons/rock.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="bug" data-name="Bug" aria-label="Explore Bug type" title="Bug"><img src="assets/type-icons/bug.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="ghost" data-name="Ghost" aria-label="Explore Ghost type" title="Ghost"><img src="assets/type-icons/ghost.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="steel" data-name="Steel" aria-label="Explore Steel type" title="Steel"><img src="assets/type-icons/steel.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="fire" data-name="Fire" aria-label="Explore Fire type" title="Fire"><img src="assets/type-icons/fire.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="water" data-name="Water" aria-label="Explore Water type" title="Water"><img src="assets/type-icons/water.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="grass" data-name="Grass" aria-label="Explore Grass type" title="Grass"><img src="assets/type-icons/grass.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="electric" data-name="Electric" aria-label="Explore Electric type" title="Electric"><img src="assets/type-icons/electric.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="psychic" data-name="Psychic" aria-label="Explore Psychic type" title="Psychic"><img src="assets/type-icons/psychic.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="ice" data-name="Ice" aria-label="Explore Ice type" title="Ice"><img src="assets/type-icons/ice.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="dragon" data-name="Dragon" aria-label="Explore Dragon type" title="Dragon"><img src="assets/type-icons/dragon.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="dark" data-name="Dark" aria-label="Explore Dark type" title="Dark"><img src="assets/type-icons/dark.png" alt="" width="56" height="56" loading="lazy"></button>
+            <button type="button" class="type-icon-btn" data-type="fairy" data-name="Fairy" aria-label="Explore Fairy type" title="Fairy"><img src="assets/type-icons/fairy.png" alt="" width="56" height="56" loading="lazy"></button>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <span class="hero-visual-caption">POKÉDEX / DATA SCANNER</span>
+        <div class="scanner-ring ring-outer"></div>
+        <div class="scanner-ring ring-inner"></div>
+        <div class="big-ball"><span class="ball-button"></span></div>
+        <div class="scanner-tag scanner-tag-a">DATA // 801</div>
+        <div class="scanner-tag scanner-tag-b">TYPE INDEX // 18</div>
+        <span class="scanner-cross cross-a">+</span>
+        <span class="scanner-cross cross-b">+</span>
+      </div>
+    </section>
+
+    <section id="overview" class="chapter" aria-labelledby="overview-title">
+      <div class="chapter-label"><span>01</span> THE DATASET <span class="chapter-rule"></span></div>
+      <div class="chapter-heading">
+        <div><h2 id="overview-title">Pokédex Overview</h2><p>Quick statistics from the complete source dataset.</p></div>
+        <span class="chapter-chip">DATA SNAPSHOT</span>
+      </div>
+      <div class="kpi-row">
+        <article class="kpi-card"><div class="kpi-top"><span class="kpi-icon icon-count">◉</span><span class="kpi-caption">01 / DATASET</span></div><span id="totalPokemon" class="kpi-number">—</span><div class="kpi-label">Pokémon records</div><span class="kpi-mini">All available entries</span></article>
+        <article class="kpi-card"><div class="kpi-top"><span class="kpi-icon icon-types">✦</span><span class="kpi-caption">02 / TYPES</span></div><span id="totalTypes" class="kpi-number">—</span><div class="kpi-label">Primary types</div><span class="kpi-mini">Unique categories</span></article>
+        <article class="kpi-card"><div class="kpi-top"><span class="kpi-icon icon-complete">◎</span><span class="kpi-caption">03 / ANALYSIS</span></div><span id="corrSample" class="kpi-number">—</span><div class="kpi-label">Complete numeric cases</div><span class="kpi-mini">Used in correlation matrix</span></article>
+      </div>
+      <article class="takeaway-card">
+        <div class="takeaway-mark">✧</div>
+        <div><h3>THE RESEARCH QUESTION</h3><p>How much can numerical battle and physical attributes tell us about a Pokémon's primary type? Explore type imbalance, overlapping distributions and the limits of classification models below.</p></div>
+        <span class="takeaway-index">RESEARCH / 01</span>
+      </article>
+    </section>
+
+    <section id="explore" class="chapter" aria-labelledby="explore-title">
+      <div class="chapter-label"><span>02</span> DATA EXPLORER <span class="chapter-rule"></span></div>
+      <div class="chapter-heading"><div><h2 id="explore-title">Explore the Pokémon world</h2><p>Inspect type frequencies and compare battle-stat profiles.</p></div><span class="chapter-chip">INTERACTIVE EDA</span></div>
+      <div class="panel-grid">
+        <section class="panel panel-wide" aria-labelledby="type-chart-title">
+          <div class="panel-head"><div><span class="panel-kicker">TYPE INDEX / 01</span><h3 id="type-chart-title">Primary Type Distribution</h3><p>Water and Normal appear most frequently. Counts reflect the original dataset.</p></div><span class="panel-ornament" aria-hidden="true">◉</span></div>
+          <div class="chart-container" style="--chart-height: 570px"><canvas id="typeChart"></canvas></div>
+        </section>
+        <section class="panel panel-wide" aria-labelledby="type-explorer-title">
+          <div class="panel-head"><div><span class="panel-kicker">TRAINER'S TOOL / 02</span><h3 id="type-explorer-title">Type Explorer</h3><p>Filter the dataset and inspect average battle statistics.</p></div><span id="selectedTypeBadge" class="type-pill pill-neutral">ALL TYPES</span></div>
+          <div class="control-line"><label for="typeSelect">Choose a type</label><select id="typeSelect"><option value="all">All Types</option></select></div>
+          <div class="stats-grid">
+            <article class="stat-card"><div class="stat-icon">#</div><span class="stat-value" id="selectedCount">—</span><span class="stat-label">Pokémon count</span></article>
+            <article class="stat-card"><div class="stat-icon">⚔</div><span class="stat-value" id="avgAttack">—</span><span class="stat-label">Average Attack</span></article>
+            <article class="stat-card"><div class="stat-icon">⬡</div><span class="stat-value" id="avgDefense">—</span><span class="stat-label">Average Defense</span></article>
+            <article class="stat-card"><div class="stat-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M4.4 18a9 9 0 1 1 15.2 0"/><path d="M12 13l4.5-5"/><circle cx="12" cy="13" r="1.2" fill="currentColor" stroke="none"/><path d="M7 18h10"/></svg></div><span class="stat-value" id="avgSpeed">—</span><span class="stat-label">Average Speed</span></article>
+          </div>
+        </section>
+        <section class="panel panel-wide" aria-labelledby="comparison-title">
+          <div class="panel-head"><div><span class="panel-kicker">HEAD TO HEAD / 03</span><h3 id="comparison-title">Battle Stat Comparison</h3><p>Compare mean Attack, Defense and Speed between any two primary types.</p></div><span class="panel-ornament" aria-hidden="true">↔</span></div>
+          <div class="comparison-controls"><div class="control-group"><label for="compareType1">TYPE ONE</label><select id="compareType1"></select></div><span class="versus">VS</span><div class="control-group"><label for="compareType2">TYPE TWO</label><select id="compareType2"></select></div></div>
+          <div class="chart-container" style="--chart-height: 380px"><canvas id="comparisonChart"></canvas></div>
+          <p class="panel-footnote">These are average stats, not predictions of battle outcomes.</p>
+        </section>
+      </div>
+    </section>
+
+    <section id="insights" class="chapter" aria-labelledby="insights-title">
+      <div class="chapter-label"><span>03</span> STATISTICAL INSIGHTS <span class="chapter-rule"></span></div>
+      <div class="chapter-heading"><div><h2 id="insights-title">Inside the statistics</h2><p>Look beyond averages: variation, overlap and correlations.</p></div><span class="chapter-chip">EXPLORATORY ANALYSIS</span></div>
+      <div class="panel-grid">
+        <section class="panel panel-wide" aria-labelledby="boxplot-title">
+          <div class="panel-head"><div><span class="panel-kicker">DISTRIBUTION / 04</span><h3 id="boxplot-title">How types overlap</h3><p>Interactive boxplots reveal medians, spread and outliers across types.</p></div></div>
+          <div class="control-line"><label for="statSelect">Choose statistic</label><select id="statSelect"><option value="attack">Attack</option><option value="defense">Defense</option><option value="speed">Speed</option><option value="hp">HP</option><option value="sp_attack">Special Attack</option><option value="sp_defense">Special Defense</option></select></div>
+          <div id="boxplotChart" class="plotly-holder"></div>
+          <p class="panel-footnote">Overlapping distributions help explain why classifying types from numerical attributes is difficult.</p>
+        </section>
+        <section class="panel panel-wide" aria-labelledby="corr-title">
+          <div class="panel-head"><div><span class="panel-kicker">CORRELATIONS / 05</span><h3 id="corr-title">Feature Relationships</h3><p>Pearson correlations across eight numeric features, using complete observations.</p></div></div>
+          <div id="correlationChart" class="plotly-holder"></div>
+          <p class="panel-footnote">Correlation measures linear association, not causation or predictive importance.</p>
+        </section>
+      </div>
+    </section>
+
+    <section id="models" class="chapter" aria-labelledby="models-title">
+      <div class="chapter-label"><span>04</span> MACHINE LEARNING LAB <span class="chapter-rule"></span></div>
+      <div class="chapter-heading"><div><h2 id="models-title">Predicting Pokémon types</h2><p>A fair comparison of a majority-class baseline, a tuned linear model and Random Forest.</p></div><span class="chapter-chip">HELD-OUT TEST DATA</span></div>
+      <article class="model-note"><span class="model-note-marker">MODEL NOTE</span><p>The models are trained on <strong>778 complete cases</strong>, excluding the very rare Flying class; the held-out test set contains <strong>228 entries across 17 types</strong>. The best model still has limited accuracy because many types share similar numeric profiles.</p></article>
+      <div class="panel-grid">
+        <section class="panel panel-wide" aria-labelledby="performance-title">
+          <div class="panel-head"><div><span class="panel-kicker">EVALUATION / 06</span><h3 id="performance-title">Model Performance</h3><p>Accuracy, Macro F1 and Balanced Accuracy on the same held-out test set.</p></div></div>
+          <div class="ml-chart-container"><canvas id="modelMetricsChart"></canvas></div>
+        </section>
+        <section class="panel panel-wide" aria-labelledby="f1-title">
+          <div class="panel-head"><div><span class="panel-kicker">PER-CLASS SCORES / 07</span><h3 id="f1-title">Random Forest: F1 by Type</h3><p>Some types remain very difficult to predict, despite improved overall accuracy.</p></div></div>
+          <div class="ml-f1-container"><canvas id="perClassChart"></canvas></div>
+        </section>
+        <section class="panel panel-wide" aria-labelledby="confusion-title">
+          <div class="panel-head"><div><span class="panel-kicker">PREDICTION ERRORS / 08</span><h3 id="confusion-title">Confusion Matrix</h3><p>Actual types appear on rows; model predictions on columns. The diagonal contains correct predictions.</p></div></div>
+          <div id="confusionMatrixChart" class="plotly-holder"></div>
+        </section>
+        <section class="panel panel-wide" aria-labelledby="importance-title">
+          <div class="panel-head"><div><span class="panel-kicker">MODEL INSIGHT / 09</span><h3 id="importance-title">Random Forest Feature Importance</h3><p>Mean Decrease Gini measures a feature's contribution to splitting, not its causal effect.</p></div></div>
+          <div class="ml-small-container"><canvas id="importanceChart"></canvas></div>
+        </section>
+        <section class="panel panel-wide" aria-labelledby="lasso-title">
+          <div class="panel-head"><div><span class="panel-kicker">REGULARIZATION / 10</span><h3 id="lasso-title">Lasso Coefficient Explorer</h3><p>Explore signed coefficients in the tuned multinomial model (alpha = 1).</p></div></div>
+          <div class="control-line"><label for="lassoTypeSelect">Choose type</label><select id="lassoTypeSelect"></select></div>
+          <div class="ml-small-container"><canvas id="lassoChart"></canvas></div>
+          <p class="panel-footnote">Coefficients are in original feature units. Their magnitudes cannot be compared directly as feature importance.</p>
+        </section>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-title"><span class="mini-ball" aria-hidden="true"></span><span>POKÉMON ATLAS <small>DATA SCIENCE PORTFOLIO</small></span></div>
+      <p>Fan-made educational data project, not affiliated with or endorsed by Pokémon. Data: <a href="https://www.kaggle.com/datasets/rounakbanik/pokemon/data" target="_blank" rel="noopener noreferrer">Complete Pokémon Dataset (Kaggle)</a>.</p>
+      <a href="#top" class="back-top">BACK TO TOP ↑</a>
+    </footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
