@@ -4,6 +4,10 @@
 
 **[View the live dashboard](https://yun-1012.github.io/pokemon-atlas-dashboard/)** · **[Browse the source code](https://github.com/yun-1012/pokemon-atlas-dashboard)**
 
+## Dashboard Preview
+
+![Pokémon Atlas Dashboard](dashboard-preview.png)
+
 ## Project overview
 
 This project extends an R-based machine learning assignment into an interactive, browser-based data science portfolio. It combines exploratory data analysis (EDA), statistical visualisation, and multi-class classification to answer two questions:
