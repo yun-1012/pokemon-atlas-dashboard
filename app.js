@@ -475,6 +475,7 @@ Promise.all([
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
+                legend: { display: false },
                 tooltip: {
                     callbacks: {
                         afterLabel: function(context) {
@@ -494,7 +495,6 @@ Promise.all([
                 },
                 y: { grid: { display: false }, border: { display: false } }
             },
-            plugins: { legend: { display: false } }
         }
     });
 
