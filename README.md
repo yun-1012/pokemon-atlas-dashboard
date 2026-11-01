@@ -2,7 +2,7 @@
 
 **Explore Pokémon characteristics, compare battle statistics, and investigate how well machine learning models can predict primary Pokémon types.**
 
-**[View the live dashboard](https://yun-1012.github.io/pokemon-atlas-dashboard/)** · **[Browse the source code](https://github.com/yun-1012/pokemon-atlas-dashboard)**
+**[Open the dashboard](https://yun-1012.github.io/pokemon-atlas-dashboard/)** · **[Browse the source code](https://github.com/yun-1012/pokemon-atlas-dashboard)**
 
 ## Dashboard Preview
 
